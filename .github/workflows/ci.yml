@@ -29,3 +29,14 @@ jobs:
       - name: Run Jupyter Notebook
         run: |
           jupyter nbconvert --to notebook --execute MiniProjectDNS.ipynb
+      
+      - name: Save Output
+        run: |
+          mkdir -p output
+          jupyter nbconvert --to html --execute MiniProjectDNS.ipynb --output-dir=output
+      
+      - name: Upload Output
+        uses: actions/upload-artifact@v3
+        with:
+          name: notebook-output
+          path: output/
