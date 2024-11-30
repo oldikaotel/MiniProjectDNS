@@ -36,7 +36,7 @@ jobs:
           jupyter nbconvert --to html --execute MiniProjectDNS.ipynb --output-dir=output
       
       - name: Upload Output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: notebook-output
           path: output/
